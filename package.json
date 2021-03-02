@@ -19,6 +19,9 @@
   },
   "homepage": "https://github.com/vandodev/6-Semana-de-Imers-o-Node.js#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "bootstrap": "^4.6.0",
     "next": "^10.0.7",
     "react": "^17.0.1",

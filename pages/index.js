@@ -6,6 +6,11 @@ import Footer from '../components/Footer';
 
 import { Jumbotron, Button, Container } from 'reactstrap';
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+library.add(fas);
+
 
 function Home(){
 
@@ -59,7 +64,7 @@ function Home(){
                     <div className="row">
                         <div className="col-md-4">
                             <div className="rounded-circle circulo centralizar">
-                                A
+                                <FontAwesomeIcon icon="laptop-code" />
                             </div>
                             <h2 className="mt-4 mb-4">Serviço um</h2>
                             <p>
@@ -68,7 +73,7 @@ function Home(){
                         </div>
                         <div className="col-md-4">
                             <div className="rounded-circle circulo centralizar">
-                                B
+                                <FontAwesomeIcon icon="mobile-alt" />
                             </div>
                             <h2 className="mt-4 mb-4">Serviço dois</h2>
                             <p>
@@ -77,7 +82,7 @@ function Home(){
                         </div>
                         <div className="col-md-4">
                             <div className="rounded-circle circulo centralizar">
-                                C
+                                 <FontAwesomeIcon icon="network-wired" />
                             </div>
                             <h2 className="mt-4 mb-4">Serviço tres</h2>
                             <p>
