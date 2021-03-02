@@ -1,4 +1,10 @@
+import Menu from '../components/Menu';
+
 function orcamento(){
-    return <div>Página de orçamento</div>
+    return(
+        <div>
+          <Menu />
+        </div>
+    ); 
 }
 export default orcamento;

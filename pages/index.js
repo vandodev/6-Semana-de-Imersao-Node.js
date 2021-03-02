@@ -1,4 +1,11 @@
+import Menu from '../components/Menu';
+
 function Home(){
-    return <div>Olá mundo</div>
+
+    return(
+        <div>
+           <Menu />
+        </div>
+    ); 
 }
 export default Home;
