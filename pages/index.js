@@ -1,6 +1,10 @@
 import React from 'react';
-import { Jumbotron, Button, Container } from 'reactstrap';
+
 import Menu from '../components/Menu';
+import Footer from '../components/Footer';
+
+import { Jumbotron, Button, Container } from 'reactstrap';
+
 
 function Home(){
 
@@ -76,7 +80,9 @@ function Home(){
                         </div>
                     </div>
                 </Container>
-            </Jumbotron>      
+            </Jumbotron> 
+
+            <Footer />     
 
         </div>
     ); 
