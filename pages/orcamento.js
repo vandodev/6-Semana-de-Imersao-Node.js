@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Menu from '../components/Menu';
 import Footer from '../components/Footer';
 
@@ -6,6 +7,12 @@ import {  Container, Jumbotron, Button, Form, FormGroup, Label, Input} from 'rea
 function orcamento(){
     return(
         <div>
+
+        <Head>
+            <title>Orcamento - Evandro</title>
+            <meta name="description" content="Solicitar orcamento para ..." />
+        </Head>
+
           <Menu />
 
           <Jumbotron fluid className="descr-top">

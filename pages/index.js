@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Head from 'next/head';
 import Menu from '../components/Menu';
 import Footer from '../components/Footer';
 
@@ -10,6 +11,11 @@ function Home(){
 
     return(
         <div>
+            <Head>
+                <title>Home - Evandro</title>
+                <meta name="description" content="Solicitar orcamento para ..." />
+            </Head>
+
            <Menu />
            <Jumbotron fluid className="descr-top">
                 <style>
