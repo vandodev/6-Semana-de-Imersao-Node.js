@@ -4,6 +4,9 @@ const mongoose = require('mongoose');
 require('./models/home');
 const Home = mongoose.model('Home');
 
+require('./models/orcamento');
+const Orcamento = mongoose.model('Orcamento');
+
 mongoose.connect('mongodb://localhost:27017/celke6', {useNewUrlParser: true, useUnifiedTopology: true}).then(() => {
     console.log("Conexão com o BD MongoDB realizado com sucesso!");
 }).catch((err) => {
@@ -11,6 +14,8 @@ mongoose.connect('mongodb://localhost:27017/celke6', {useNewUrlParser: true, use
 })
 
 const app = express();
+
+app.use(express.json());
 
 app.get('/home', async (req, res) => {
     await Home.findOne({}).then((home) => {
@@ -64,6 +69,21 @@ app.post('/home', async (req, res) => {
     return res.json({
         error: false,
         message: "Conteúdo da página home cadastrado com sucesso!"
+    });
+});
+
+app.post('/orcamento', async (req, res) => {    
+
+    await Orcamento.create(req.body, (err) => {
+        if(err) return res.status(400).json({
+            error: true,
+            message: "Erro: Ao solicitar orçamento!"
+        });
+    });
+
+    return res.json({
+        error: false,
+        message: "Solicitação de orçamento enviado com sucesso!"
     });
 });
 
