@@ -12,8 +12,18 @@ mongoose.connect('mongodb://localhost:27017/celke6', {useNewUrlParser: true, use
 
 const app = express();
 
-app.get('/home', function (req, res){
-    res.send('hello world');
+app.get('/home', async (req, res) => {
+    await Home.findOne({}).then((home) => {
+        return res.json({
+            error: false,
+            home
+        });
+    }).catch((err) => {
+        return res.status(400).json({
+            error: true,
+            message: "Nenhum registro encontrado!"
+        });
+    });
 });
 
 app.post('/home', async (req, res) => {
