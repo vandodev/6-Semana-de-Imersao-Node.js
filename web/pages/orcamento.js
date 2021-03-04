@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Menu from '../components/Menu';
 import Footer from '../components/Footer';
 
-import {  Container, Jumbotron, Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import {  Container, Jumbotron, Button, Form, FormGroup, Label, Input, Alert} from 'reactstrap';
 
 
 function orcamento(){
@@ -17,10 +17,19 @@ function orcamento(){
     projeto: ''
   });
 
+  const [respose, setRespose] = useState({
+    formSave: false,
+    type: '',
+    message: ''
+  });
+
+
   const onChangeInput = e => setOrcamento({ ...orcamento, [e.target.name]: e.target.value });
 
   const sendOrcamento = async e => {
     e.preventDefault();
+
+    setRespose({ formSave: true });
 
     try {
       const res = await fetch('http://localhost:8080/orcamento', {
@@ -32,18 +41,29 @@ function orcamento(){
       const responseEnv = await res.json();
 
       if (responseEnv.error) {
-         alert(responseEnv.message);
+        setRespose({
+          formSave: false,
+          type: 'error',
+          message: responseEnv.message
+        });
       } else {
-        alert(responseEnv.message);
+        setRespose({
+          formSave: false,
+          type: 'success',
+          message: responseEnv.message
+        });
       }
     } catch (err) {
       setRespose({
         formSave: false,
         type: 'error',
-        message: "Erro: Orçamento não enviado com sucesso!"
+        message: "Erro: Orçamento não enviado!"
       });
     }
+
+
   }
+
 
     return(
         <div>
@@ -82,6 +102,11 @@ function orcamento(){
             }`}
         </style>
         <Container>
+
+
+          {respose.type === 'error' ? <Alert color="danger">{respose.message}</Alert> : ""}
+          {respose.type === 'success' ? <Alert color="success">{respose.message}</Alert> : ""}
+
           <Form onSubmit={sendOrcamento}>
             <FormGroup>
               <Label for="name">Nome</Label>
